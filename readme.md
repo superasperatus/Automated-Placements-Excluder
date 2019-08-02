@@ -1,4 +1,4 @@
-#APE - Automated Placements Excluder 
+# APE - Automated Placements Excluder 
 
 This simple script does 4 things:
     1. Connects to your Google Ads Account and downloads active placements report for the past 7 days 
@@ -7,14 +7,14 @@ This simple script does 4 things:
     4. Based on the set criteria it sends the domains to be excluded in Google Ads on the Account level
 
 
-##The APE Initializer 
+## The APE Initializer 
 
 The `APE_initializer.py` is just a python/terminal based control file that provides some control and options for the script implementation. 
 
 The future goal is to create a Flask based web app that will do this all visually. 
 
 
-##On the Google Ads Client  
+## On the Google Ads Client  
 
 Google Ads Client - User & Account ID is set in the `googleads.yaml` file. 
 
@@ -27,7 +27,7 @@ The `LoadFromStorage` method takes the location of `googleads.yaml` as an argume
 Get your `googleads.yaml` file [here](https://github.com/googleads/googleads-python-lib/blob/master/googleads.yaml).
 
 
-##On the Google Ads Active Placements Report
+## On the Google Ads Active Placements Report
 
 The report report definition is found in the `download_active_placements_gads.py`file. 
 
@@ -36,7 +36,7 @@ By default APE downloads several metrics and account details for the past 7 days
 To edit the scope of the report edit the `ReportQueryBuidler()` method. 
 
 
-##On Open Page Rank API 
+## On Open Page Rank API 
 
 OPR API is provided thanks to [DompCop](https://www.domcop.com/openpagerank/documentation.)
 
@@ -63,7 +63,7 @@ Any other custom qualification can be added with:
 `df_extracted = df_with_all_stats.loc[df_with_all_stats['ANYTHINGELSE'].values =<> ]`
 
 
-##Placements are Excluded on Account Level
+## Placements are Excluded on Account Level
 
 Yes beware, the scripts excludes placements on the Account Level in defined Google Ads client. 
 
