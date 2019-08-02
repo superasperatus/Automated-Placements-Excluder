@@ -38,7 +38,7 @@ To edit the scope of the report edit the `ReportQueryBuidler()` method.
 
 ## On Open Page Rank API 
 
-OPR API is provided thanks to [DompCop](https://www.domcop.com/openpagerank/documentation.)
+OPR API is provided thanks to [DompCop.](https://www.domcop.com/openpagerank/documentation.)
 
 It is the only free API I could find to get some stats on the domains rating and rank. 
 
