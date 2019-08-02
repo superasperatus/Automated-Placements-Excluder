@@ -13,7 +13,7 @@ And these allow you to automatically evaluate all the placements where your ads 
 
 The `APE_initializer.py` is just a python/terminal based control file that provides some control and options for the script implementation. 
 
-The future goal is to create a Flask based web app that will do this all visually. 
+The future goal is to create a Flask based web app that will do this all in a browser with a nice UI. 
 
 
 ## On the Google Ads Client  
