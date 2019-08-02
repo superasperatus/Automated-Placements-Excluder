@@ -26,7 +26,7 @@ APE creates the Google Ads client int the `APE_initializer.py` file in this line
 
 The `LoadFromStorage` method takes the location of `googleads.yaml` as an argument. Empty argument, signifies that the method will search for the `googleads.yaml` file on the default location. 
 
-Get your `googleads.yaml` file [here](https://github.com/googleads/googleads-python-lib/blob/master/googleads.yaml).
+Get an empty `googleads.yaml` file [here](https://github.com/googleads/googleads-python-lib/blob/master/googleads.yaml).
 
 
 ## On the Google Ads Active Placements Report
