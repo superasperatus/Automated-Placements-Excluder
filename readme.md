@@ -69,7 +69,7 @@ Any other custom qualification can be added with:
 `df_extracted = df_with_all_stats.loc[df_with_all_stats['ANYTHINGELSE'].values =<> ]`
 
 
-## Placements are Excluded on Account Level
+## Note Placements are Excluded on Account Level
 
 Yes beware, the scripts excludes placements on the Account Level in defined Google Ads client. 
 
