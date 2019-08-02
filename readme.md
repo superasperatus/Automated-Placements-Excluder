@@ -1,10 +1,10 @@
 # APE - Automated Placements Excluder 
 
 This simple script does 4 things:
-    1. Connects to your Google Ads Account and downloads active placements report for the past 7 days 
-    2. Extracts Domains and sends them to Open Page Rank API for page rank evaluation 
-    3. Attaches the results of the OPR API with the domain report 
-    4. Based on the set criteria it sends the domains to be excluded in Google Ads on the Account level
+    *1. Connects to your Google Ads Account and downloads active placements report for the past 7 days 
+    *2. Extracts Domains and sends them to Open Page Rank API for page rank evaluation 
+    *3. Attaches the results of the OPR API with the domain report 
+    *4. Based on the set criteria it sends the domains to be excluded in Google Ads on the Account level
 
 
 ## The APE Initializer 
