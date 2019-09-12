@@ -7,7 +7,7 @@ from googleads import adwords
 adwords_client = adwords.AdWordsClient.LoadFromStorage()
 #The Google Ads client is defined within the googleads.yaml file from a default location. 
 
-opr_api_key = 'ADD_YOUR_OPR_API_KEY'
+opr_api_key = 'k4o0gkwgwg8w840scg40w4kg0kk80gk884ssgkkw'
 
 """
 What follows is some kind of control flow. The methods are found in the APE Folder. 
@@ -24,13 +24,15 @@ else:
 if "y" or 'Y' in second_choice:
     from APE.download_active_placements_gads import downloading_gads_report
     downloading_gads_report(adwords_client)
-    print("\n -- SUCCESS: Check your working folder for the downloaded-active-placements-report.csv file  \n")
+    print("\n -- SUCCESS: Check your working folder for the Automatic placements report.csv file  \n")
 else:
     print('This will not work if you dont connect to your Google Ads Account!')
 
 third_choice = input("\n Please check the domains and stats and press Y when ready to proceed. ")
 
 if "y" or 'Y' in third_choice:
+    from APE.read_domains_from_report import clean_report
+    clean_report()
     from APE.read_domains_from_report import read_downloaded_domains
     read_downloaded_domains()
     print("\n -- SUCCESS: The domains are now extracted! Check the extracted-domains.csv file!  \n")

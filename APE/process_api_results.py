@@ -1,15 +1,17 @@
 from APE.send_domains_to_OR_api import send_domains_to_OPR_df
+from read_domains_from_report import clean_report
+
 import pandas as pd
 
 def attach_OPR_metrics_to_original_file(opr_api_key):
     """Attaches OPR Metrics to original Google Ads Report"""
     api_result_df = send_domains_to_OPR_df(opr_api_key)
-    ads_report_df = pd.read_csv('downloaded-active-placements-report.csv')
-    df_merge = pd.merge(api_result_df, ads_report_df, on='Domain', how='outer')
+    ads_report_df = pd.read_csv("Automatic placements report.csv")
+    df_merge = pd.merge(api_result_df, ads_report_df, on='Placement', how='outer')
     df_merge.sort_values(by='page_rank_decimal', ascending = False)
-    delete_total_row = df_merge[df_merge['Domain'] == ' --'].index
+    delete_total_row = df_merge[df_merge['Placement'] == ' --'].index
     df_merge.drop(delete_total_row, inplace=True)
-    df_merge.to_csv('active-placements-plus-domains-stats.csv')
+    df_merge.to_csv('Active placements plus domain stats.csv')
     return df_merge
     
 def extract_domains_to_exclude(opr_api_key):
@@ -21,7 +23,7 @@ def extract_domains_to_exclude(opr_api_key):
     df_extracted = df_with_all_stats.loc[df_with_all_stats['Conversions'].values == 0] #optional for conversion based optimization
     #df_extracted = df_with_all_stats.loc[df_with_all_stats['ANYTHINGELSE'].values =<> ] #placeholder for any other qualification
     df_extracted.to_csv('REVIEW-domains-stats-that-will-be-excluded.csv')
-    domains_to_exclude = df_extracted['Domain']
+    domains_to_exclude = df_extracted['Placement']
     return domains_to_exclude
     
                                   

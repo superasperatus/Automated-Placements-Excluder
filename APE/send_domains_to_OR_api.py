@@ -6,9 +6,9 @@ import json
 
 def domains_to_list():
     """This static methods reads the domains from the report and adds them to the list"""
-    read_domains = pd.read_csv("downloaded-active-placements-report.csv", usecols=['Domain'])
-    domains_list = read_domains["Domain"].tolist()
-    while ' --' in domains_list: domains_list.remove(' --') 
+    read_domains = pd.read_csv("Extracted Placements.csv", usecols=['Placement'])
+    domains_list = read_domains.values.tolist()
+    #while ' --' in domains_list: domains_list.remove(' --') - this just deletes the Total rows if in there.
     return domains_list    
 
 def send_domains_to_OPR_df(opr_api_key):
@@ -17,6 +17,7 @@ def send_domains_to_OPR_df(opr_api_key):
     headers = {'API-OPR': '%s' % opr_api_key}
     api_result_df = pd.DataFrame(None)    
     for item in domains_to_check:
+        item = str(item)
         url = 'https://openpagerank.com/api/v1.0/getPageRank?domains%5B0%5D=' + item
         request = requests.get(url, headers=headers)
         api_result = request.json()
@@ -25,7 +26,7 @@ def send_domains_to_OPR_df(opr_api_key):
 
     api_result_df.sort_values(by='page_rank_decimal', ascending = False)
     
-    api_result_df.rename(columns={'domain':'Domain'}, inplace=True)
+    api_result_df.rename(columns={'domain':'Placement'}, inplace=True)
     api_result_df = api_result_df.astype({'page_rank_decimal': float,
                                       'rank': float,
                                       'page_rank_integer': float})

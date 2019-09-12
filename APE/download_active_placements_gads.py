@@ -34,7 +34,7 @@ def downloading_gads_report(client):
 
   output.seek(0)
   df = pd.read_csv(output)
-  df.to_csv("downloaded-active-placements-report.csv")
+  df.to_csv("Automatic placements report.csv")
 
 
 
