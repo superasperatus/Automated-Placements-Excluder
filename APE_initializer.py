@@ -47,6 +47,7 @@ if 'y' or 'Y' in forth_choice:
     send_domains_to_OPR_df(opr_api_key)
 
     from APE.process_api_results import attach_OPR_metrics_to_original_file, extract_domains_to_exclude
+    
     attach_OPR_metrics_to_original_file(opr_api_key)
     
     print('\n -- SUCCESS: The domain stats have been returned and attached to the file active-placements-plus-domains-stats! Review it. \n')
