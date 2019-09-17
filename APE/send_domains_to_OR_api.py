@@ -35,23 +35,3 @@ def send_domains_to_OPR_df(opr_api_key):
     
     return api_result_df
 
-"""
-
- api_result_df['page_rank_decimal'] = (api_result_df['page_rank_decimal'].str.split()).apply(lambda x: float(x[0].replace(',', '')))
-    api_result_df['rank'] = (api_result_df['rank'].str.split()).apply(lambda x: float(x[0].replace(',', '')))
-    api_result_df['page_rank_integer'] = (api_result_df['ranpage_rank_integerk'].str.split()).apply(lambda x: float(x[0].replace(',', '')))
-    api_result_df['page_rank_decimal'] = api_result_df['page_rank_decimal'].astype('float')
-    api_result_df['rank'] = api_result_df['rank'].astype('float')
-    api_result_df['page_rank_integer'] = api_result_df['page_rank_integer'].astype('float')
-
-    api_result_df['page_rank_decimal'].astype('float')
-    api_result_df['rank'].astype('float')
-    api_result_df['page_rank_integer'].astype('float')
-
-    api_result_df['page_rank_decimal'] = api_result_df['page_rank_decimal'].apply(lambda x: float(x.split()[0].replace(',', '')))
-    api_result_df['rank'] = api_result_df['rank'].apply(lambda x: float(x.split()[0].replace(',', '')))
-    api_result_df['page_rank_integer'] = api_result_df['page_rank_integer'].apply(lambda x: float(x.split()[0].replace(',', '')))
-
-
-"""
-    

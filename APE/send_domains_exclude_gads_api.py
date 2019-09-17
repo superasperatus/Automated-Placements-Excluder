@@ -22,7 +22,6 @@ def excluding_domains_gads(adwords_client, domains_to_exclude):
     } for criterion in excluding_api_criteria]
 
     result = customer_negative_criterion_service.mutate(operations)
-    #print(result)
     return result
 
 
