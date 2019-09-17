@@ -29,6 +29,6 @@ def display_excluded_domains(adwords_client, domains_to_exclude):
     """Displays the results of exclusion"""
     result = excluding_domains_gads(adwords_client, domains_to_exclude)
     for negative_criterion in result['value']:
-        print('Placeement ID "%s", and type "%s" '
+        print('Placement ID "%s", and type "%s" '
         'was added as negative placement.' % (negative_criterion['criterion']['id'],
                     negative_criterion['criterion']['type']))

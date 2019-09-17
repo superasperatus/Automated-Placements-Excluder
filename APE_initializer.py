@@ -30,7 +30,7 @@ else:
 if second_choice  in ['y', 'Y']:
     from APE.download_active_placements_gads import downloading_gads_report
     downloading_gads_report(adwords_client)
-    print("\n -- SUCCESS: Check your working folder for the 'Automatic placements report.csv' file  \n")
+    print("\n -- SUCCESS: Check your working folder for the 'Active Placements Report.csv' file  \n")
 else:
     raise ValidationError("This will not work if you dont connect to your Google Ads Account!?", "Error: Need confirmation to continue!")
 
@@ -77,7 +77,7 @@ if sixth_choice  in ['y', 'Y']:
     from APE.send_domains_exclude_gads_api import excluding_domains_gads, display_excluded_domains
     excluding_domains_gads(adwords_client, domains_to_exclude)
 
-    print('\n -- SUCCESS: The placements have been excluded in Google Ads! Check the file "Placements Excluded.csv" for details!')
+    print('\n -- SUCCESS: The placements have been excluded in Google Ads! Check the file "Placements Qualified for Exclusion.csv" for details!')
 
     print('\n \n -- -- And thats it. Double Check Google Ads account that these have been indeed excluded! \n \n')    
 

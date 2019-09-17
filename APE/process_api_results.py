@@ -22,7 +22,7 @@ def extract_domains_to_exclude(opr_api_key):
     #df_extracted = df_with_all_stats.loc[df_with_all_stats['Impressions'].values > 1500] #optional for impression based optimization
     #df_extracted = df_with_all_stats.loc[df_with_all_stats['Conversions'].values == 0] #optional for conversion based optimization
     #df_extracted = df_with_all_stats.loc[df_with_all_stats['ANYTHINGELSE'].values =<> ] #placeholder for any other qualification
-    df_extracted.to_csv('Placements Excluded.csv')
+    df_extracted.to_csv('Placements Qualified for Exclusion.csv')
     domains_to_exclude = df_extracted['Placement']
     return domains_to_exclude
     
