@@ -24,15 +24,15 @@ def send_domains_to_OPR_df(opr_api_key):
         api_result = request.json()
         api_result_norm = json_normalize(api_result, 'response')
         api_result_df = api_result_df.append(api_result_norm)
-
-    api_result_df.sort_values(by='page_rank_decimal', ascending = False)
     
-    api_result_df.rename(columns={'domain':'Placement'}, inplace=True)
-
     api_result_df['page_rank_decimal'] = pd.to_numeric(api_result_df['page_rank_decimal'])
     api_result_df['rank'] = pd.to_numeric(api_result_df['rank'])
     api_result_df['page_rank_integer'] = pd.to_numeric(api_result_df['page_rank_integer'])
    
+    api_result_df.sort_values(by='page_rank_decimal', ascending = False)
+    
+    api_result_df.rename(columns={'domain':'Placement'}, inplace=True)
+    
     return api_result_df
 
 """
