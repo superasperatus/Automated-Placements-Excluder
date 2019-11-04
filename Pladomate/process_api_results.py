@@ -1,12 +1,12 @@
-from APE.send_domains_to_OR_api import send_domains_to_OPR_df
-from APE.read_domains_from_report import clean_report
+from Pladomate.send_domains_to_OR_api import send_domains_to_OPR_df
+from Pladomate.read_domains_from_report import clean_report
 
 import pandas as pd
 
 def attach_OPR_metrics_to_original_file(opr_api_key):
     """Attaches OPR Metrics to original Google Ads Report"""
     api_result_df = send_domains_to_OPR_df(opr_api_key)
-    ads_report_df = pd.read_csv("Automatic placements report.csv")
+    ads_report_df = pd.read_csv("Active Placements Report.csv")
     df_merge = pd.merge(api_result_df, ads_report_df, on='Placement', how='outer')
     df_merge.sort_values(by='page_rank_decimal', ascending = False)
     #delete_total_row = df_merge[df_merge['Placement'] == ' --'].index
