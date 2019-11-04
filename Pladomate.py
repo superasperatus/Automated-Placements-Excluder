@@ -1,5 +1,5 @@
 """
-Initiliazing the Excluder 
+Initiliazing Pladomate  
 
 """
 from googleads import adwords
@@ -15,11 +15,11 @@ class ValidationError(Exception):
        self.errors = errors
 
 """
-What follows is some kind of control flow. The methods are found in the APE Folder. 
+What follows is some kind of control flow. The methods are found in the Pladomate Folder. 
 Remove the if and inputs if you want to run everything automatically.
 """
 
-first_choice = input("Are you ready to run the excluder (Y/N): ")
+first_choice = input("Are you ready to run the Pladomate (Y/N): ")
 
 if first_choice in ['y', 'Y']:
     second_choice = input('Ready to download active placements from your Google Ads Account? ')
@@ -28,7 +28,7 @@ else:
     
     
 if second_choice  in ['y', 'Y']:
-    from APE.download_active_placements_gads import downloading_gads_report
+    from Pladomate.download_active_placements_gads import downloading_gads_report
     downloading_gads_report(adwords_client)
     print("\n -- SUCCESS: Check your working folder for the 'Active Placements Report.csv' file  \n")
 else:
@@ -37,9 +37,9 @@ else:
 third_choice = input("\n Please check the domains and stats and press Y when ready to proceed. ")
 
 if third_choice  in ['y', 'Y']:
-    from APE.read_domains_from_report import clean_report
+    from Pladomate.read_domains_from_report import clean_report
     clean_report()
-    from APE.read_domains_from_report import read_downloaded_domains
+    from Pladomate.read_domains_from_report import read_downloaded_domains
     read_downloaded_domains()
     print("\n -- SUCCESS: The domains are now extracted! Check the 'Extracted Placements.csv' file!  \n")
 else: 
@@ -48,12 +48,12 @@ else:
 forth_choice = input('\n When ready press Y to send them to Open Page Rank API and retrieve page ranks. Ready? \n')
 
 if forth_choice in ['y', 'Y']:
-    from APE.send_domains_to_OR_api import domains_to_list, send_domains_to_OPR_df
+    from Pladomate.send_domains_to_OR_api import domains_to_list, send_domains_to_OPR_df
     
     domains_to_list()
     send_domains_to_OPR_df(opr_api_key)
 
-    from APE.process_api_results import attach_OPR_metrics_to_original_file, extract_domains_to_exclude
+    from Pladomate.process_api_results import attach_OPR_metrics_to_original_file, extract_domains_to_exclude
     
     attach_OPR_metrics_to_original_file(opr_api_key)
     
@@ -74,7 +74,7 @@ if sixth_choice  in ['y', 'Y']:
     domains_to_exclude = extract_domains_to_exclude(opr_api_key)
     domains_to_exclude = domains_to_exclude.values.tolist()
 
-    from APE.send_domains_exclude_gads_api import excluding_domains_gads, display_excluded_domains
+    from Pladomate.send_domains_exclude_gads_api import excluding_domains_gads, display_excluded_domains
     excluding_domains_gads(adwords_client, domains_to_exclude)
 
     print('\n -- SUCCESS: The placements have been excluded in Google Ads! Check the file "Placements Qualified for Exclusion.csv" for details!')

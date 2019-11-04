@@ -1,6 +1,6 @@
-# APE - Automated Placements Excluder 
+# Pladomate - Automated Placements Excluder 
 
-APE does 4 simple things:
+Pladomate does 4 simple things:
 1. Connects to your Google Ads Account and downloads active placements report for the past 7 days 
 2. Extracts Domains and sends them to Open Page Rank API for page rank evaluation 
 3. Attaches the results of the OPR API with the domain report 
@@ -9,9 +9,9 @@ APE does 4 simple things:
 And these allow you to automatically evaluate all the placements where your ads showed in the past 7 days and if they're of low page rank or underperforming - you can exclude them from targeting options on the account level.
 
 
-## The APE Initializer 
+## The Pladomate Initializer 
 
-The `APE_initializer.py` is just a python/terminal based control file that provides some control and options for the script implementation. 
+The `Pladomate.py` is just a python/terminal based control file that provides some control and options for the script implementation. 
 
 The future goal is to create a Flask based web app that will do this all in a browser with a nice UI. 
 
@@ -20,7 +20,7 @@ The future goal is to create a Flask based web app that will do this all in a br
 
 Google Ads Client - User & Account ID is set in the `googleads.yaml` file. 
 
-APE creates the Google Ads client int the `APE_initializer.py` file in this line:
+Pladomate creates the Google Ads client int the `Pladomate.py` file in this line:
 
 `adwords_client = adwords.AdWordsClient.LoadFromStorage()` 
 
@@ -33,7 +33,7 @@ Get an empty `googleads.yaml` file [here](https://github.com/googleads/googleads
 
 The report report definition is found in the `download_active_placements_gads.py`file. 
 
-By default APE downloads several metrics and account details for the past 7 days.
+By default Pladomate downloads several metrics and account details for the past 7 days.
 
 To edit the scope of the report edit the `ReportQueryBuidler()` method. 
 
