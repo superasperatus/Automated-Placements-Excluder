@@ -1,4 +1,4 @@
-# Pladomate - Automated Placements Excluder 
+# Pladomate CMD Based
 
 Pladomate does 4 simple things:
 1. Connects to your Google Ads Account and downloads active placements report for the past 7 days 
